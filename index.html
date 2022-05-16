@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Shop Homepage</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="/">Juno's</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                id="navbarDropdown"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Shop</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#!">All Products</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form id="cartForm" class="d-flex">
+            <button id="cartBtn" class="btn btn-outline-dark" type="submit">
+              <i class="bi-cart-fill me-1"></i>
+              Cart
+              <span
+                id="cartSpan"
+                class="badge bg-dark text-white ms-1 rounded-pill"
+                >0</span
+              >
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- Header-->
+    <header class="masthead">
+      <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+          <div class="col-lg-6">
+            <!-- Mashead text and app badges-->
+            <div class="mb-5 mb-lg-0 text-center text-lg-start">
+              <h1 class="display-1 lh-1 mb-3">Juno's Store</h1>
+              <p class="lead fw-normal text-muted mb-5">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel
+                quibusdam explicabo ratione, a labore omnis, atque numquam
+                beatae laboriosam inventore vero sapiente voluptatum? Iste,
+                magnam. Id magni ex pariatur corporis.
+              </p>
+              <div class="d-flex flex-column flex-lg-row align-items-center">
+                <a class="btn btn-warning" href="#products">Shop</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <img
+              src="assets/img/shoe.png"
+              class="img-fluid"
+              alt="Responsive image"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Section-->
+    <section id="products" class="py-5">
+      <div class="container px-4 px-lg-5 mt-5">
+        <div
+          id="feed"
+          class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+        ></div>
+      </div>
+    </section>
+    <div
+      class="modal fade"
+      id="sizeModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Size Selector</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6 align-self-center">
+                <img
+                  id="imgSizeSelector"
+                  class="img-fluid"
+                  src="https://via.placeholder.com/750x500"
+                  alt="product"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <h3
+                  id="sizeProductName"
+                  class="my-3 text-dark text-center"
+                ></h3>
+                <h4 class="my-3 text-danger text-center">Select Size:</h4>
+                <form id="sizeSelectorForm" class="text-center">
+                  <div class="m-3" id="sizeSelectorFeed"></div>
+                  <button type="submit" class="btn btn-warning">
+                    <i class="bi-cart-fill me-1"></i> Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="cartModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              <i class="bi-cart-fill me-1"></i> Cart
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="card">
+              <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                  <thead class="text-muted">
+                    <tr>
+                      <th scope="col">Product</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="cartTable"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              id="checkoutBtn"
+              type="button"
+              class="btn btn-warning"
+              data-bs-toggle="modal"
+              data-bs-target="#paymentModal"
+            >
+              Checkout
+            </button>
+            <!-- <form action="/create-checkout-session.php" method="POST"> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="paymentModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Payment Form</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="payment-form">
+              <div id="payment-element">
+                <!--Stripe.js injects the Payment Element-->
+              </div>
+              <button id="submit" class="btn btn-warning my-3">
+                <div class="spinner hidden" id="spinner"></div>
+                <span id="button-text">Pay now</span>
+              </button>
+              <div id="payment-message" class="hidden"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">
+          Copyright &copy; Jahir Benitez 2022, Made at Juno College
+        </p>
+      </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
