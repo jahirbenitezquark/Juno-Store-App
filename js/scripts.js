@@ -21,7 +21,6 @@ storeApp.GetProducts = () => {
     url: `/api/v1/requests/ProductAction.php`,
     method: "POST",
     dataType: "json",
-    crossDomain: true,
     data: data,
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
